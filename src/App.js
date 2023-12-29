@@ -1,7 +1,7 @@
 import React, { useEffect, useState,lazy,Suspense } from "react";
 import { useDispatch } from "react-redux";
 import { useSelector } from "react-redux";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { HashRouter as Router, Routes, Route } from "react-router-dom";
 import "react-toastify/dist/ReactToastify.css";
 import { ToastContainer } from "react-toastify";
 import RestartAltIcon from '@mui/icons-material/RestartAlt';

@@ -29,7 +29,7 @@ const SubHome = () => {
     return (
         <div className="container mt-5 pt-5">
             <div className="row">
-                <div className="col">
+                <div className="col mb-3">
                     {loading ? (<h4 className="text-center p-3 mt-5 mb-5 display-4 bg-secondary-subtle">
                         Loading...
                     </h4>) : (<h4 className="text-center p-3 mt-5 mb-5 display-4 bg-secondary-subtle">
@@ -37,7 +37,7 @@ const SubHome = () => {
                 </div>
             </div>
             <div className="row">
-                {products.map((p) => <div className="col" key={p._id}>
+                {products.map((p) => <div className="col-sm-12 col-md-4 mt-3" key={p._id}>
                     <ProductCard product={p} />
                 </div>)}
             </div>

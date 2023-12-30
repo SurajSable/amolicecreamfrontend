@@ -16,7 +16,7 @@ import { currentAdmin } from "./functions/auth";
 // import Home from "./pages/Home";
 // import Header from "./components/nav/Header";
 // import RegisterComplete from "./pages/auth/RegisterComplete";
-// import loggedInUser from "./redux/actions/loggedInUser";
+import loggedInUser from "./redux/actions/loggedInUser";
 // import firebase from "./firebase"
 // import ForgotPassword from "./pages/auth/ForgotPassword";
 // import History from "./pages/user/History";
@@ -51,7 +51,7 @@ const Register = lazy(()=>import("./pages/auth/Register")) ;
 const Home = lazy(()=>import("./pages/Home")) ; 
 const Header = lazy(()=>import("./components/nav/Header")) ; 
 const RegisterComplete  = lazy(()=>import( "./pages/auth/RegisterComplete")) ;
-const loggedInUser = lazy(()=>import("./redux/actions/loggedInUser")) ; 
+//const loggedInUser = lazy(()=>import("./redux/actions/loggedInUser")) ; 
 // const firebase = lazy(()=>import( "./firebase")) ;
 const ForgotPassword  = lazy(()=>import("./pages/auth/ForgotPassword")) ;
 const History = lazy(()=>import("./pages/user/History")) ; 

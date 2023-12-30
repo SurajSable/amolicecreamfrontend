@@ -5,8 +5,8 @@ const EmptyCart = () => {
   return (
     <div className='p-6'>
       <img
-        src="https://flipkart-clone-ui.vercel.app/static/media/empty.c1b29ed47e2361efe393.webp"
-        alt=""
+        src="https://www.chandranscreation.com/images/empty-cart.jpg"
+        alt="Empty Cart"
         style={{ width: '400px', height: '400px' }}
       />
       <h1 className=' text-base font-bold'>Look Like your cart is Empty !</h1>

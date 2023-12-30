@@ -62,7 +62,7 @@ const Product = () => {
       <div className="row pb-5">
         {related.length ? (
           related.map((r) => (
-            <div key={r._id} className="col-md-4">
+            <div key={r._id} className="col-md-4 mb-3">
               <ProductCard product={r} />
             </div>
           ))

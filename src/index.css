@@ -23,3 +23,11 @@ code {
 .my-li:hover {
   background-color: #E3E6DC; /* Change this to your desired color */
 }
+
+
+@media only screen and (max-width: 576px) {
+  .cart-table{
+   width: 390px;
+  }
+}
+

@@ -6,15 +6,19 @@ import { useNavigate } from "react-router-dom";
 import { userCart } from "../functions/user";
 import ProductCardInCheckout from "../components/cards/ProductCardInCheckout";
 import EmptyCart from "../components/EmptyCart";
+
+import { useParams } from "react-router-dom";
 const selectUserCartData = createSelector(
   state => state.user,
   state => state.cart,
   (user, cart) => ({ user, cart })
 );
+
 const Cart = () => {
   const navigate = useNavigate()
   const dispatch = useDispatch();
   const { user, cart } = useSelector(selectUserCartData);
+  const { slug } = useParams()
   const getTotal = () => {
     return cart.reduce((currentValue, nextValue) => {
       return currentValue + nextValue.count * nextValue.price;
@@ -37,10 +41,16 @@ const Cart = () => {
       payload: true,
     });
     userCart(cart, user.token)
-      .then((res) => {
-        if (res.ok) navigate("/checkout");
-      })
-      .catch((err) => console.error("cart save err", err));
+    .then((res) => {
+      if (res.ok) {
+        navigate("/checkout");
+      } else {
+        navigate("/login");
+      }
+    })
+    .catch((err) => {
+      console.error("cart save err", err);
+    });
   };
 
   const handleAddCart = () => {
@@ -52,9 +62,21 @@ const Cart = () => {
         });
     }
   };
+  // const handleModal = () => {
+  //   if (user && user.token) {
+  //     // setOpen(true);
+  //   } else {
+  //     navigate("/login",
+  //     // {
+  //     //   state: { from: `/product/${slug}` },
+  //     // } 
+  //     );
+  //   }
+  // };
 
   const showCartItems = () => (
-    <table className="table table-bordered p-auto">
+    <div className="overflow-y-auto cart-table">
+    <table className="table table-bordered p-auto ">
       <thead className="thead-light ">
         <tr>
           <th scope="col">Image</th>
@@ -71,11 +93,18 @@ const Cart = () => {
         <ProductCardInCheckout key={p._id} p={p} />
       ))}
     </table>
+    </div>
+   
   );
   return (
     <div className="container-fluid btn-group mt-5 pt-5">
+      {/* <div onClick={handleModal}>
+        <StarBorderIcon className="text-danger ms-4" /> <br />
+        {" "}
+        {user?.email ? "Leave rating" : "Login to leave rating"}
+      </div> */}
       <div className="row">
-        <div className="col-md-8">
+        <div className="col-md-8 col-sm-12">
           <h4>Cart / {cart.length} Product</h4>
           {!cart.length ? (<>
             <p>
@@ -108,7 +137,8 @@ const Cart = () => {
                 className="btn btn-sm btn-primary mt-2"
                 disabled={!cart.length}
               >
-                Proceed to Checkout
+                        Proceed to Checkout
+
               </button>
               <br />
               <button
@@ -116,12 +146,14 @@ const Cart = () => {
                 className="btn btn-sm btn-warning mt-2"
                 disabled={!cart.length}
               >
-                Pay Cash on Delivery
+                  Pay Cash on Delivery
+               
               </button>
             </>
           ) : (
             <button className="btn btn-sm btn-primary mt-2"
-              onClick={handleAddCart}>
+              onClick={handleAddCart}
+              >
               Login to Checkout
             </button>
           )}

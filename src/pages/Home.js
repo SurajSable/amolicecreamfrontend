@@ -11,7 +11,7 @@ const Home = () => {
                 <CategoryNav />
             </div>
             <div className="jumbotron text-danger h1 font-weight-bold text-center">
-                <Jmbotron text={["Latest Products", "New Arrivals", "Best Sellers"]} />
+                <Jmbotron text={["Latest Products", "Amol Icecream", "Best Sellers"]} />
             </div>
             <h4 className="text-center p-3 mt-5 mb-5 display-4 bg-secondary">
                 New Arrivals

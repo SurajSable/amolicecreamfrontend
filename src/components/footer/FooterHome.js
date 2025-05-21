@@ -64,7 +64,7 @@ const Footer = () => {
                     <i className="fas fa-envelope mr-3" /> Monday to sunday
                   </p>
                   <p>
-                    <i className="fas fa-envelope mr-3" /> 9:00 AM
+                    <i className="fas fa-envelope mr-3" /> 8:00 AM
                     <br />
                     To
                     <br />
